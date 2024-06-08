@@ -3,7 +3,10 @@
     "autoload": {
         "psr-4": {
             "Admin\\Base\\": "src/"
-        }
+        },
+        "files": [
+            "helper.php"
+        ]
     },
     "authors": [
         {
