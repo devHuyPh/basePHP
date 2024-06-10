@@ -29,6 +29,10 @@ class Model
         $this->queryBuilder = $this->conn->createQueryBuilder();
     }
 
+    public function getConnection(){
+        return $this->conn;
+    }
+
     // CRUD
     public function all()
     {
@@ -42,9 +46,9 @@ class Model
     public function count()
     {
         return $this->queryBuilder
-        ->select("COUNT(*) as $this->tableName")
-        ->from($this->tableName)
-        ->fetchOne();
+            ->select("COUNT(*) as total")
+            ->from($this->tableName)
+            ->fetchOne();
     }
 
     public function paginate($page = 1, $perPage = 1)

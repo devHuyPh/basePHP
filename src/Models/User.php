@@ -18,4 +18,13 @@ class User extends Model
             ->setParameter(0, $email)
             ->fetchAssociative();
     }
+    public function find($id)
+    {
+        return $this->queryBuilder
+            ->select('*')
+            ->from($this->tableName)
+            ->where('id = ?')
+            ->setParameter(0, $id)
+            ->fetchAssociative();
+    }
 }

@@ -12,7 +12,7 @@ Product Detail
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 			<span class="stext-109 cl4">
-				{{ $products['name']}}
+				{{ $product['name']}}
 			</span>
 		</div>
 	</div>
@@ -26,10 +26,10 @@ Product Detail
 					<div class="p-l-25 p-r-30 p-lr-0-lg">
 						<div class="wrap-slick3 flex-sb flex-w">
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="{{ $products['img_thumbnail']}}">
+								<div class="item-slick3" data-thumb="{{ $product['img_thumbnail']}}">
 									<div class="wrap-pic-w pos-relative">
 										
-										<img src="{{asset($products['img_thumbnail'])}}" alt="">
+										<img src="{{asset($product['img_thumbnail'])}}" alt="">
 										
 									</div>
 								</div>
@@ -41,74 +41,41 @@ Product Detail
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-						{{ $products['name']}}
+						{{ $product['name']}}
 						</h4>
 
 						<span class="mtext-106 cl2">
-						{{ $products['price_sale']}}
+						{{ $product['price_sale']}}
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-						{{ $products['overview']}}
+						{{ $product['overview']}}
 						</p>
 						
 						<!--  -->
 						<div class="p-t-33">
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Size
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="time">
-											<option>Choose an option</option>
-											<option>Size S</option>
-											<option>Size M</option>
-											<option>Size L</option>
-											<option>Size XL</option>
-										</select>
-										<div class="dropDownSelect2"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Color
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="time">
-											<option>Choose an option</option>
-											<option>Red</option>
-											<option>Blue</option>
-											<option>White</option>
-											<option>Grey</option>
-										</select>
-										<div class="dropDownSelect2"></div>
-									</div>
-								</div>
-							</div>
-
+							
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-204 flex-w flex-m respon6-next">
-									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-minus"></i>
-										</div>
+									<form action="{{url('cart/add')}}" method="get" >
+                                        <input type="hidden" name="productID" value="{{$product['id']}}">
+                                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                            </div>
+                                            <input class="mtext-104 cl3 txt-center num-product" type="number"
+                                                name="quantity" value="1">
+                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                            </div>
+                                        </div>
+                                        <button type="submit"
+                                            class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
+                                            Add to cart
+                                        
+                                        </button>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-plus"></i>
-										</div>
-									</div>
-
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										Add to cart
-									</button>
+                                    </form>
 								</div>
 							</div>	
 						</div>
@@ -161,7 +128,7 @@ Product Detail
 						<div class="tab-pane fade show active" id="description" role="tabpanel">
 							<div class="how-pos2 p-lr-15-md">
 								<p class="stext-102 cl6">
-									{{$products['content']}}
+									{{$product['content']}}
 								</p>
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
         <div class="logo d-flex justify-content-between">
-            <a href="index-2.html"><img src="{{ asset ('assets/admin/img/logo.png')}}" alt></a>
+            <a href="{{url('')}}"><img src="{{ asset ('assets/admin/img/logo.png')}}" alt></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -56,19 +56,13 @@
                 </ul>
             </li>
             <li class>
-                <a class="has-arrow" href="#" aria-expanded="false">
+                <a class="has-arrow" href="{{url('admin/orders')}}" aria-expanded="false">
                     <div class="icon_menu">
                         <img src="{{ asset ('assets/admin/img/menu-icon/10.svg')}}" alt>
                     </div>
-                    <span>Components</span>
+                    <span>Order</span>
                 </a>
-                <ul>
-                    <li><a href="accordion.html">Accordions</a></li>
-                    <li><a href="Scrollable.html">Scrollable</a></li>
-                    <li><a href="notification.html">Notifications</a></li>
-                    <li><a href="carousel.html">Carousel</a></li>
-                    <li><a href="Pagination.html">Pagination</a></li>
-                </ul>
+                
             </li>
             <li class>
                 <a class="has-arrow" href="#" aria-expanded="false">

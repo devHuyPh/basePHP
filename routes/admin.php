@@ -13,8 +13,15 @@
 use Admin\Base\Controllers\Admin\CategoryController;
 use Admin\Base\Controllers\Admin\UserController;
 use Admin\Base\Controllers\Admin\DashboardController;
+use Admin\Base\Controllers\Admin\OrderController;
 use Admin\Base\Controllers\Admin\ProductController;
 
+$router->before('GET|POST', '/admin/*.*', function () {
+    if (!isset($_SESSION['user']) || $_SESSION['user']['type'] === 'member') {
+        header('location: ' . url('login'));
+        exit();
+    }
+});
 
 $router->mount('/admin', function () use ($router) {
 
@@ -50,5 +57,13 @@ $router->mount('/admin', function () use ($router) {
         $router->post('/{id}/update',   CategoryController::class . '@update'); // Lưu sửa vào DB
         $router->get('/{id}/delete',    CategoryController::class . '@delete'); // Xóa
     });
+    $router->mount('/orders', function () use ($router) {
+        $router->get('/',                       OrderController::class .'@index');
+        $router->get('/{id}',                   OrderController::class .'@show');
+        // $router->get('{id}/status/update  ',  OrderController::class .'@updateStatus');
+    });
+
+    $router->get('/orders/{id}/status/update' ,              OrderController::class .'@updateStatus');
+
     
 });

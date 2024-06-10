@@ -291,10 +291,32 @@ Shop
     </div>
 
     <!-- Load more -->
-    <div class="flex-c-m flex-w w-full p-t-45">
-        <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-            phan trang
-        </a>
-    </div>
+    <div class="col-lg-12">
+            <div class="white_box mb_30">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
+                            <a class="page-link " href=" {{ url('shop?page= ' . $page - 1) }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        @for ($i = 1; $i <= $totalPage; $i++)
+                            <li class="page-item  {{ $i == $page ? 'active' : '' }}"><a class="  page-link"
+                                    href="{{ url('shop?page=') . $i }} ">{{ $i }}</a></li>
+                        @endfor
+
+
+                        <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
+                            <a class="page-link "
+                                href="{{ $page < $totalPage ? url('shop?page=' . $page + 1) : '' }}"
+                                aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
 </div>
 @endsection

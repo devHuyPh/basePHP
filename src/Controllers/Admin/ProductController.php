@@ -25,13 +25,11 @@ class ProductController extends Controller
     {
         
 
-        [$products, $totalPage] =$this->product->paginate($_GET['page'] ?? 1);
-        // Helper::debug($products);
-        // die();
+        [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
         $this->renderViewAdmin('products.index', [
             'products' => $products,
             'totalPage' => $totalPage,
-            'page' => $_GET['page'] ?? 1 ,
+            'page' => $_GET['page'] ?? 1,
         ]);
     }
 

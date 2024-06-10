@@ -13,3 +13,4 @@
     <link rel="stylesheet" type="text/css" href="{{ asset ('assets/client/vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('assets/client/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('assets/client/css/main.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

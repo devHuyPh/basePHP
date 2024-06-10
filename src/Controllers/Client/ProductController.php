@@ -18,7 +18,13 @@ class ProductController extends Controller
         $this->product = new Product();
     }
     public function index() {
-        echo __CLASS__ . '@' . __FUNCTION__;
+        [$products, $totalPage] =$this->product->paginateHome($_GET['page'] ?? 1, 9);
+
+        $this -> renderViewClient('products.index',[
+            'products' => $products,
+            'totalPage' => $totalPage,
+            'page'  => $_GET['page'] ?? 1
+        ]);
     }
 
     public function detail($id) {
@@ -26,7 +32,7 @@ class ProductController extends Controller
         
 
         $this->renderViewClient('productDetail', [
-            'products' => $product,
+            'product' => $product,
         ]);
     }
 }
