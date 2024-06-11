@@ -3,6 +3,7 @@
 namespace Admin\Base\Controllers\Client;
 
 use Admin\Base\Commons\Controller;
+use Admin\Base\Commons\Helper;
 use Admin\Base\Models\Cart;
 use Admin\Base\Models\CartDetail;
 use Admin\Base\Models\Order;
@@ -118,13 +119,22 @@ class OrderController extends Controller
         }
 
         $orders = $this->order->findByUserID($userID);
+        
         $orderDetails = [];
 
-        foreach ($orders as $order) {
-            $orderDetails[$order['id']] = $this->orderDetail->findByOrderID($order['id']);
-        }
         
-        $this->renderViewClient('history',
+
+
+        foreach ($orders as $order) {
+            
+            $orderDetails[$order['id']] = $this->orderDetail->historyfindByOrderID($order['id']);
+
+        }
+
+        //  Helper::debug($orderDetails);
+              
+        $this->renderViewClient('history'
+        ,
             [
                 'orders' => $orders,
                 'orderDetails' => $orderDetails,

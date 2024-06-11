@@ -18,6 +18,15 @@ class OrderDetail extends Model
             ->setParameter(0, $orderID)
             ->fetchAllAssociative();
     }
+    public function historyfindByOrderID($orderID)
+    {
+        return $this->queryBuilder
+            ->select('*')
+            ->from($this->tableName)
+            ->where('order_id = ?')
+            ->setParameter(0, $orderID)
+            ->fetchAllAssociative();
+    }
 
     public function adminfindByOrderID($orderID)
     {

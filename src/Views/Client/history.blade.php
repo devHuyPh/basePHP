@@ -38,7 +38,9 @@ Lịch sử đơn hàng
                         <table class="table">
                             <thead>
                                 <tr>
+
                                     <th>Sản phẩm</th>
+                                    <th> id Sản phẩm</th>
                                     <th>Số lượng</th>
                                     <th>Giá</th>
                                     <th>Tổng</th>
@@ -47,7 +49,8 @@ Lịch sử đơn hàng
                             <tbody>
                                 @foreach ($orderDetails[$order['id']] as $detail)
                                 <tr>
-                                    <!-- <td>{{ $detail['product_name'] }}</td> -->
+                                    <td>{{ $detail['product_name'] }}</td>
+                                    <td>{{ $detail['product_id'] }}</td>
                                     <td>{{ $detail['quantity'] }}</td>
                                     <td>{{ $detail['price_sale'] }}</td>
                                     <td>{{ $detail['quantity'] * $detail['price_sale'] }}</td>
